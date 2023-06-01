@@ -1,0 +1,54 @@
+diff --git a/node_modules/tsyringe/dist/typings/decorators/inject-all-with-transform.d.ts b/node_modules/tsyringe/dist/typings/decorators/inject-all-with-transform.d.ts
+index 196dfac..1a5764e 100644
+--- a/node_modules/tsyringe/dist/typings/decorators/inject-all-with-transform.d.ts
++++ b/node_modules/tsyringe/dist/typings/decorators/inject-all-with-transform.d.ts
+@@ -5,5 +5,5 @@ import Transform from "../types/transform";
+  *
+  * @return {Function} The parameter decorator
+  */
+-declare function injectAllWithTransform(token: InjectionToken<any>, transformer: InjectionToken<Transform<[any], any>>, ...args: any[]): (target: any, propertyKey: string | symbol, parameterIndex: number) => any;
++declare function injectAllWithTransform(token: InjectionToken<any>, transformer: InjectionToken<Transform<[any], any>>, ...args: any[]): (target: any, propertyKey: string | symbol | undefined, parameterIndex: number) => any;
+ export default injectAllWithTransform;
+diff --git a/node_modules/tsyringe/dist/typings/decorators/inject-all.d.ts b/node_modules/tsyringe/dist/typings/decorators/inject-all.d.ts
+index 2bd7da4..3716ef5 100644
+--- a/node_modules/tsyringe/dist/typings/decorators/inject-all.d.ts
++++ b/node_modules/tsyringe/dist/typings/decorators/inject-all.d.ts
+@@ -4,5 +4,5 @@ import InjectionToken from "../providers/injection-token";
+  *
+  * @return {Function} The parameter decorator
+  */
+-declare function injectAll(token: InjectionToken<any>): (target: any, propertyKey: string | symbol, parameterIndex: number) => any;
++declare function injectAll(token: InjectionToken<any>): (target: any, propertyKey: string | symbol | undefined, parameterIndex: number) => any;
+ export default injectAll;
+diff --git a/node_modules/tsyringe/dist/typings/decorators/inject-with-transform.d.ts b/node_modules/tsyringe/dist/typings/decorators/inject-with-transform.d.ts
+index 05f87d7..47ba138 100644
+--- a/node_modules/tsyringe/dist/typings/decorators/inject-with-transform.d.ts
++++ b/node_modules/tsyringe/dist/typings/decorators/inject-with-transform.d.ts
+@@ -7,5 +7,5 @@ import Transform from "../types/transform";
+  * @param args Arguments to be passed to the transform method on the transformer
+  * @returns The parameter decorator
+  */
+-declare function injectWithTransform(token: InjectionToken<any>, transformer: InjectionToken<Transform<any, any>>, ...args: any[]): (target: any, propertyKey: string | symbol, parameterIndex: number) => any;
++declare function injectWithTransform(token: InjectionToken<any>, transformer: InjectionToken<Transform<any, any>>, ...args: any[]): (target: any, propertyKey: string | symbol | undefined, parameterIndex: number) => any;
+ export default injectWithTransform;
+diff --git a/node_modules/tsyringe/dist/typings/decorators/inject.d.ts b/node_modules/tsyringe/dist/typings/decorators/inject.d.ts
+index 5d48d79..867384c 100644
+--- a/node_modules/tsyringe/dist/typings/decorators/inject.d.ts
++++ b/node_modules/tsyringe/dist/typings/decorators/inject.d.ts
+@@ -4,5 +4,5 @@ import InjectionToken from "../providers/injection-token";
+  *
+  * @return {Function} The parameter decorator
+  */
+-declare function inject(token: InjectionToken<any>): (target: any, propertyKey: string | symbol, parameterIndex: number) => any;
++declare function inject(token: InjectionToken<any>): (target: any, propertyKey: string | symbol | undefined, parameterIndex: number) => any;
+ export default inject;
+diff --git a/node_modules/tsyringe/dist/typings/reflection-helpers.d.ts b/node_modules/tsyringe/dist/typings/reflection-helpers.d.ts
+index 2591a35..4c45940 100644
+--- a/node_modules/tsyringe/dist/typings/reflection-helpers.d.ts
++++ b/node_modules/tsyringe/dist/typings/reflection-helpers.d.ts
+@@ -7,4 +7,4 @@ export declare function getParamInfo(target: constructor<any>): ParamInfo[];
+ export declare function defineInjectionTokenMetadata(data: any, transform?: {
+     transformToken: InjectionToken<Transform<any, any>>;
+     args: any[];
+-}): (target: any, propertyKey: string | symbol, parameterIndex: number) => any;
++}): (target: any, propertyKey: string | symbol | undefined, parameterIndex: number) => any;
