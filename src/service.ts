@@ -1,8 +1,8 @@
-import { injectable } from "tsyringe";
-import { Database } from "./database";
+import { injectable } from 'tsyringe';
+import { Database } from './database';
 
 @injectable()
-export class Foo {
+export class MyService {
   constructor(private database: Database) {}
 
   startDatabase(): void {
