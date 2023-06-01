@@ -1,3 +1,10 @@
 "use strict";
-// eslint-disable-next-line no-console
-console.log('Hello world!');
+Object.defineProperty(exports, "__esModule", { value: true });
+require("reflect-metadata");
+var tsyringe_1 = require("tsyringe");
+var foo_1 = require("./foo");
+var database_1 = require("./database");
+var databaseOptions = { url: 'mongodb://localhost:27017/' };
+tsyringe_1.container.registerInstance(database_1.DatabaseOptionsToken, databaseOptions);
+var instance = tsyringe_1.container.resolve(foo_1.Foo);
+instance.startDatabase();
