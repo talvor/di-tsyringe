@@ -12,6 +12,6 @@ export class Database {
   constructor(@inject(DatabaseOptionsToken) private options: DatabaseOptions) {}
 
   connect(): void {
-    console.log(`connecting to ${this.options.url}`);
+    console.log(`Connecting to ${this.options.url}`);
   }
 }
